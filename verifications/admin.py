@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from verifications.models import (
+    VerificationScheduleEvent,
+    VerificationEvent,
+    )
+
+admin.site.register(VerificationScheduleEvent)
+admin.site.register(VerificationEvent)

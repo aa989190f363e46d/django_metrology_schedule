@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('refs/', include('referencies.urls')),
     path('instr/', include('instruments.urls')),
+    # path('verif/', include('verifications.urls')),
     path('select2/', include('django_select2.urls')),
 ]

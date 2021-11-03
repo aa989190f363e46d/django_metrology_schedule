@@ -106,7 +106,7 @@ class InstrumentDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         instrument_id = context['object'].id
-        context['item_model_name'] = _('validtor')
+        context['item_model_name'] = _('instrument')
         context['item_edit_url'] = reverse_lazy(
             'instrument_edit',
             kwargs={'pk': instrument_id},
@@ -136,6 +136,7 @@ class InstrumentCreateView(
     model = Instrument
     template_name = 'item_create.html'
     form_class = InstrumentForm
+
     # fields = [
     #     'instrument_type',
     #     'displacement',
@@ -154,6 +155,7 @@ class InstrumentUpdateView(
     model = Instrument
     template_name = 'item_edit.html'
     form_class = InstrumentForm
+
     # fields = [
     #     'instrument_type',
     #     'displacement',

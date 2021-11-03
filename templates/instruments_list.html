@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}List of instruments{% endblock title %}
+
+{% block content %}
+<a class="nav-link" href="{% url 'instrument_create' %}">New instrument</a>
+
+{% for instrument in instruments_list %}
+<div class="card">
+    <div class="card-header">
+        <a class="font-weight-bold" href="{% url 'instrument_details' instrument.id %}">{{ instrument }}</a>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% endblock content %}

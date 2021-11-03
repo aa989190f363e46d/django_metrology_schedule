@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}List of validators{% endblock title %}
+
+{% block content %}
+<a class="nav-link" href="{% url 'validator_create' %}">New validator</a>
+
+{% for validator in validators_list %}
+<div class="card">
+    <div class="card-header">
+        <a class="font-weight-bold" href="{% url 'validator_details' validator.id %}">{{ validator }}</a>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% endblock content %}

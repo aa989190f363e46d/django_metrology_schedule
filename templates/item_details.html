@@ -1,0 +1,31 @@
+<!--reference item_details.html-->
+
+{% extends 'base.html' %}
+
+{% block title %}Details of {{ item_model_name }} [{{ contragent.title }}]{% endblock title %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <a class="font-weight-bold" href="#">{{ contragent.title }}</a>
+    </div>
+    <div class="card-body">
+        {% for field, val in details.items %}
+        <p><b>{{ field }} </b>: {{ val }}</p>
+        {% endfor %}
+    </div>
+    <div class="card-footer text-center">
+        <a class="btn btn-primary btn-sm" href="{{ item_edit_url }}">📝 Edit</a>
+        {% if user.is_staff %}
+        <a class="btn btn-danger btn-sm" href="{{ item_delete_url }}">🗑 Delete</a>
+        {% endif %}
+    </div>
+</div>
+
+<br>
+<hr>
+
+<p>Back to <a href="{{ imems_list_url }}">items list</a></p>
+
+{% endblock content %}

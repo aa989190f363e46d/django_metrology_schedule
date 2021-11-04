@@ -77,7 +77,7 @@ class Contragent(models.Model):
         return f'{self.unp} {self.ownership_form} {self.title}'
 
     def get_absolute_url(self):
-        return reverse('contragent_details', args=(self.id,))
+        return reverse('contragent_details', args=(self.pk,))
 
     def get_details(self, fields):
         return {field: getattr(self, field) for field in fields}
@@ -125,7 +125,7 @@ class Validator(models.Model):
         return f'{self.license_number} {self.license_expiry_date}'
 
     def get_absolute_url(self):
-        return reverse_lazy('validator_details', args=(self.id,))
+        return reverse_lazy('validator_details', args=(self.pk,))
 
     def get_details(self, fields):
         return {field: getattr(self, field) for field in fields}
@@ -172,7 +172,7 @@ class Place(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse_lazy('place_details', args=(self.id,))
+        return reverse_lazy('place_details', args=(self.pk,))
 
     def get_details(self, fields):
         return {field: getattr(self, field) for field in fields}

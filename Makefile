@@ -1,7 +1,7 @@
 MANAGE := poetry run python manage.py
-DJANGO_DEBUG=TRUE
 
-run:
+run: 
+	export DJANGO_DEBUG=True
 	$(MANAGE) runserver
 
 repl:

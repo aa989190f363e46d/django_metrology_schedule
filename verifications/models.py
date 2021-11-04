@@ -62,7 +62,7 @@ class VerificationScheduleEvent(models.Model):
     def get_absolute_url(self):
         return reverse(
             'verification_schedule_event_details',
-            args=(self.id,),
+            args=(self.pk,),
             )
 
     def get_details(self, fields):
@@ -122,7 +122,7 @@ class VerificationEvent(models.Model):
         return f'{self.date} {instrument} {self.result}'
 
     def get_absolute_url(self):
-        return reverse('verification_event_details', args=(self.id,))
+        return reverse('verification_event_details', args=(self.pk,))
 
     def get_details(self, fields):
         return {field: getattr(self, field) for field in fields}

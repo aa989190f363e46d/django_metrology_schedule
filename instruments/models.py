@@ -83,7 +83,7 @@ class InstrumentType(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('instrument_type_details', args=(self.id,))
+        return reverse('instrument_type_details', args=(self.pk,))
 
     def get_details(self, fields):
         return {field: getattr(self, field) for field in fields}
@@ -204,7 +204,7 @@ class Instrument(models.Model):
         return f'{self.accouning_id} {self.title}'
 
     def get_absolute_url(self):
-        return reverse('instrument_details', args=(self.id,))
+        return reverse('instrument_details', args=(self.pk,))
 
     def get_details(self, fields):
         return {field: getattr(self, field) for field in fields}

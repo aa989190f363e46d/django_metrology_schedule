@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}List of validators{% endblock title %}
+
+{% block content %}
+<a class="nav-link" href="{% url 'verification_schedule_event_create' %}">New event</a>
+
+{% for schedule_events in schedule %}
+<div class="card">
+    <div class="card-header">
+        <a class="font-weight-bold" href="{% url 'verification_schedule_event_details' schedule_events.id %}">{{ schedule_events }}</a>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% endblock content %}

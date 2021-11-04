@@ -2,24 +2,24 @@ from django.urls import path
 
 from common.utils import append_CRUD
 from verifications.views import (
-    Schedule,
+    VerificationScheduleEventListView,
     )
 
 urlpatterns = [
     path(
         '',
-        Schedule.as_view(),
+        VerificationScheduleEventListView.as_view(),
         name='schedule',
         ),
 ]
 
-
 append_CRUD(
     urlpatterns,
     'verifications',
+    'VerificationScheduleEvent',
     'verification_schedule_event',
-    'validator',
     )
+
 append_CRUD(
     urlpatterns,
     'verifications',

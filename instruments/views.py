@@ -26,7 +26,7 @@ class InstrumentTypeDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         instrument_type_id = context['object'].id
-        context['item_model_name'] = _('instrument_type')
+        context['item_model_name'] = _('instrument type')
         context['item_edit_url'] = reverse_lazy(
             'instrument_type_edit',
             kwargs={'pk': instrument_type_id},
@@ -62,6 +62,9 @@ class InstrumentTypeCreateView(
         'default_validation_interval',
         'sweep_mark',
         ]
+    extra_context = {
+        'item_model_name': 'instrument type',
+        }
 
 
 class InstrumentTypeUpdateView(
@@ -78,7 +81,9 @@ class InstrumentTypeUpdateView(
         'default_validation_interval',
         'sweep_mark',
         ]
-
+    extra_context = {
+        'item_model_name': 'instrument type',
+        }
 
 class InstrumentTypeDeleteView(
     LoginRequiredMixin,
@@ -88,7 +93,10 @@ class InstrumentTypeDeleteView(
     model = Instrument
     template_name = 'item_delete.html'
     success_url = reverse_lazy('instrument_type_list')
-
+    extra_context = {
+        'item_model_name': 'instrument type',
+        }
+        
     def test_func(self):
         return self.request.user.is_staff
 

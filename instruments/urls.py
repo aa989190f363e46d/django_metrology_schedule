@@ -11,7 +11,7 @@ urlpatterns = [
         InstrumentCatalog.as_view(),
         name='instr_catalog',
         ),
-]
+    ]
 
 append_CRUD(
     urlpatterns,

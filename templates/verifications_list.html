@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}List of verifications{% endblock title %}
+
+{% block content %}
+<a class="nav-link" href="{% url 'verification_event_create' %}">New event</a>
+
+{% for verification in verifications_list %}
+<div class="card">
+    <div class="card-header">
+        <a class="font-weight-bold" href="{% url 'verification_event_details' verification.pk %}">{{ verification }}</a>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% endblock content %}
